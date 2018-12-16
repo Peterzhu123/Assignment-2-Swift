@@ -1,6 +1,6 @@
 //
 // Created by: Peter Zhu
-// Created on: Jan 2018
+// Created on: Oct 2018
 // This program calculates the number of logs that will fit on a truck,
 //     if you know their length
 
@@ -12,23 +12,26 @@ var paper = 2
 var user:Int = 0
 
 print("Rock Paper Scisser Game!")
-print("Rock = 0 , Paper = 1, Scisser = 2. Choose one above as your answer ")
+print("Rock = 0 , Paper = 1, Scissor = 2. Choose one above as your answer ")
 
-var com = arc4random_uniform(3)
+let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+srand48(Int(time))
+let com = Int(drand48() * 3)
 let respond = readLine()
 user = Int(respond!)!
 
 if user == com {
     if user == 0 {
-        print("Tie, Both choose Rock ")
+        print("Tie, Both choose Rock")
     }
     if user == 1 {
-        print("Tie, Both choose scissors ")
+        print("Tie, Both choose Paper")
     }
     if user == 2 {
-        print("Tie, Both choose paper ")
+        print("Tie, Both choose Scissor")
     }
 }
+
 else if user == 0 {
     if com == 1 {
         print("You lose! You chose Rock, Computer chose Paper")
@@ -36,29 +39,24 @@ else if user == 0 {
     if com == 2{
         print("You Win! You chose Rock, Computer chose Scissor ")
     }
-}
 
+}
 else if user == 1 {
     if com == 0 {
-        print("You lose, You chose Scissor , computer choose rock")
+        print("You win, You chose paper , computer choose rock")
     }
     if com == 2{
-        print("You win. You choose Scissor , Computer choose paper ")
+        print("You lose. You choose paper , Computer choose scissor ")
     }
 }
 else if user == 2{
     if com == 0 {
-        print("You win! You choose paper, Computer choose rock")
+        print("You lose! You choose Scissor , Computer choose rock")
     }
     if com == 1 {
-        print("You lose! You choose Paper, Computer choose Scissor ")
+        print("You Win! You choose Scissor, Computer choose Paper ")
     }
 }
-    if user > 3 {
+else if user > 3 {
         print("Valid answer")
 }
-
-
-
-    
-
